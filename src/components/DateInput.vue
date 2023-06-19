@@ -11,17 +11,16 @@
       <template v-slot:activator="{ props }">
         <v-text-field
           v-bind="props"
-          :value="dateFormatted"
+          :modelValue="dateFormatted"
           variant="outlined"
           append-inner-icon="mdi-calendar"
-          @change="onChange"
-          @input="updateDate"
+
         ></v-text-field>
       </template>
       <v-date-picker
-        :value="getDate"   
-        @change="onChange"
-        @input="updateDate"
+        color="primary"
+        :modelValue="getDate"
+        @update:modelValue="updateDate"
       ></v-date-picker>
     </v-menu>
   </div>
@@ -37,18 +36,36 @@ export default {
     value: {
       type: String,
       default() {
-        return ""
+        return "2023-10-10"
       },
+    },
+  },
+  watch: {
+    value: {
+      handler(val) {
+        this.input = val;
+      },
+      immediate: true,
     },
   },
   data() {
     return {
       menu: false,
+      input: null,
     };
   },
   computed: {
     dateFormatted() {
-      return this.input ? new Date(this.input) : "";
+      const date = this.input ? new Date(this.input) : "";
+      let month = 1 + date.getMonth();
+      if (month < 10) {
+        month = `0${month}`;
+      }
+      let day = date.getDate();
+      if (day < 10) {
+        day = `0${day}`;
+      }
+      return [`${date.getFullYear()}-${month}-${day}`]
     },
     getDate() {
       /**
@@ -64,15 +81,14 @@ export default {
       if (day < 10) {
         day = `0${day}`;
       }
-      return `${date.getFullYear()}-${month}-${day}`;
+      // return [date]
+      return [`${date.getFullYear()}-${month}-${day}`]
     },
   },
   methods: {
-    onChange(val) {
-      console.error(val)
-    },
     updateDate(val) {
       this.menu = false;
+      this.input = val
       console.error(val)
     },
   },

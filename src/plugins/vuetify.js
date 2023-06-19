@@ -12,10 +12,15 @@ import * as labs from "vuetify/labs/components";
 // Composables
 import { createVuetify } from 'vuetify'
 
+import { VuetifyDateAdapter } from 'vuetify/labs/date/adapters/vuetify'
+
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   components: {
     ...labs,
+  },
+  date: {
+    adapter: VuetifyDateAdapter,
   },
   theme: {
     themes: {

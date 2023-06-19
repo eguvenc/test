@@ -3,6 +3,7 @@
     <v-row>
       <v-col cols="6">
         <date-input></date-input>
+        <date-input></date-input>
       </v-col>  
     </v-row>
   </v-container>
@@ -15,15 +16,6 @@ import DateInput from './components/DateInput.vue';
 export default {
   components: {
     DateInput,
-  },
-  data() {
-
-  },
-  computed: {
-
-  },
-  methods: {
-  
   },
 }
 </script>

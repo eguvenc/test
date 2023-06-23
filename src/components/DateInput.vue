@@ -56,7 +56,7 @@ export default {
   },
   computed: {
     dateFormatted() {
-      const date = this.input ? new Date(this.input) : "";
+      const date = this.input ? new Date(this.input) : new Date();
       let month = 1 + date.getMonth();
       if (month < 10) {
         month = `0${month}`;
@@ -72,17 +72,7 @@ export default {
        * Return ISO 8601
        */
       let date = this.input ? new Date(this.input) : new Date();
-
-      let month = 1 + date.getMonth();
-      if (month < 10) {
-        month = `0${month}`;
-      }
-      let day = date.getDate();
-      if (day < 10) {
-        day = `0${day}`;
-      }
-      // return [date]
-      return [`${date.getFullYear()}-${month}-${day}`]
+      return [date]
     },
   },
   methods: {

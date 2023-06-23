@@ -8,19 +8,21 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import * as labs from "vuetify/labs/components";
+// Translations provided by Vuetify
+import { en, tr } from "vuetify/locale";
 
 // Composables
 import { createVuetify } from 'vuetify'
-
-import { VuetifyDateAdapter } from 'vuetify/labs/date/adapters/vuetify'
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   components: {
     ...labs,
   },
-  date: {
-    adapter: VuetifyDateAdapter,
+  locale: {
+    locale: "tr",
+    fallback: "en",
+    messages: { tr, en },
   },
   theme: {
     themes: {

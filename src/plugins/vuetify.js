@@ -14,10 +14,21 @@ import { en, tr } from "vuetify/locale";
 // Composables
 import { createVuetify } from 'vuetify'
 
+import DateFnsAdapter from '@date-io/date-fns'
+import enUS from 'date-fns/locale/en-US'
+import trTr from 'date-fns/locale/tr'
+
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   components: {
     ...labs,
+  },
+  date: {
+    adapter: DateFnsAdapter,
+    locale: {
+      en: enUS,
+      tr: trTr,
+    },
   },
   locale: {
     locale: "tr",

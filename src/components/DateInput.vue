@@ -1,20 +1,6 @@
 <template>
   <div>
-      <v-locale-provider locale="tr">
-        <v-date-picker
-          color="primary"
-          :modelValue="getDate"
-          @update:modelValue="updateDate"
-        ></v-date-picker>
-      </v-locale-provider>
-<!-- 
-      <v-text-field
-        :modelValue="dateFormatted"
-        variant="outlined"
-        append-inner-icon="mdi-calendar"
-      ></v-text-field> -->
-
-<!--     <v-menu
+    <v-menu
       v-model="menu"
       :close-on-content-click="false"
       :nudge-right="40"
@@ -30,12 +16,19 @@
           append-inner-icon="mdi-calendar"
         ></v-text-field>
       </template>
-    </v-menu> -->
+      <v-locale-provider locale="tr">
+        <v-date-picker
+          color="primary"
+          :modelValue="getDate"
+          @update:modelValue="updateDate"
+        ></v-date-picker>
+      </v-locale-provider>
+    </v-menu>
   </div>
 </template>
 
 <script>
-import { toRaw } from 'vue';
+// import { toRaw } from 'vue';
 
 export default {
   props: {

@@ -1,6 +1,20 @@
 <template>
   <div>
-    <v-menu
+      <v-locale-provider locale="tr">
+        <v-date-picker
+          color="primary"
+          :modelValue="getDate"
+          @update:modelValue="updateDate"
+        ></v-date-picker>
+      </v-locale-provider>
+<!-- 
+      <v-text-field
+        :modelValue="dateFormatted"
+        variant="outlined"
+        append-inner-icon="mdi-calendar"
+      ></v-text-field> -->
+
+<!--     <v-menu
       v-model="menu"
       :close-on-content-click="false"
       :nudge-right="40"
@@ -14,19 +28,15 @@
           :modelValue="dateFormatted"
           variant="outlined"
           append-inner-icon="mdi-calendar"
-
         ></v-text-field>
       </template>
-      <v-date-picker
-        color="primary"
-        :modelValue="getDate"
-        @update:modelValue="updateDate"
-      ></v-date-picker>
-    </v-menu>
+    </v-menu> -->
   </div>
 </template>
 
 <script>
+import { toRaw } from 'vue';
+
 export default {
   props: {
     /**
@@ -65,19 +75,19 @@ export default {
       if (day < 10) {
         day = `0${day}`;
       }
-      return [`${date.getFullYear()}-${month}-${day}`]
+      return `${date.getFullYear()}-${month}-${day}`;
     },
     getDate() {
       /**
        * Return ISO 8601
        */
       let date = this.input ? new Date(this.input) : new Date();
-      return [date]
+      return date;
     },
   },
   methods: {
     updateDate(val) {
-      this.menu = false;
+      // this.menu = false;
       this.input = val
       console.error(val)
     },

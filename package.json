@@ -9,7 +9,7 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
   },
   "dependencies": {
-    "@date-io/date-fns": "^2.16.0",
+    "@date-io/date-fns": "^2.17.0",
     "@mdi/font": "7.0.96",
     "@vuelidate/core": "^2.0.2",
     "@vuelidate/validators": "^2.0.2",
@@ -18,14 +18,11 @@
     "luxon": "^3.3.0",
     "roboto-fontface": "*",
     "vue": "^3.3.4",
-    "vue-router": "^4.0.0",
-    "vuedraggable": "^4.1.0",
-    "vuetify": "^3.3.11",
     "vue-advanced-cropper": "^2.8.8",
     "vue-currency-input": "^3.0.5",
     "vue-router": "^4.0.0",
     "vuedraggable": "^4.1.0",
-    "vuetify": "^3.3.12",
+    "vuetify": "^3.4.0",
     "webfontloader": "^1.0.0"
   },
   "devDependencies": {

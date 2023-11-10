@@ -19,8 +19,11 @@
       <v-locale-provider locale="tr">
         <v-date-picker
           color="primary"
+          variant="outlined"
           :modelValue="getDate"
           @update:modelValue="updateDate"
+          cancel-text="Vazgeç"
+          ok-text="Seç"
         ></v-date-picker>
       </v-locale-provider>
     </v-menu>
@@ -80,7 +83,7 @@ export default {
   },
   methods: {
     updateDate(val) {
-      // this.menu = false;
+      this.menu = false;
       this.input = val
       console.error(val)
     },

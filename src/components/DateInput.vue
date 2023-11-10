@@ -16,15 +16,19 @@
           append-inner-icon="mdi-calendar"
         ></v-text-field>
       </template>
-      <v-locale-provider locale="tr">
+      <v-locale-provider locale="en">
         <v-date-picker
           color="primary"
+          :input-mode="inputMode"
           variant="outlined"
           :modelValue="getDate"
           @update:modelValue="updateDate"
-          cancel-text="Vazgeç"
-          ok-text="Seç"
+          cancel-text="Cancel"
+          ok-text="Choose"
         ></v-date-picker>
+<!--         <v-btn @click="selectDate">
+          Select
+        </v-btn> -->
       </v-locale-provider>
     </v-menu>
   </div>
@@ -35,6 +39,12 @@
 
 export default {
   props: {
+    inputMode: {
+      type: String,
+      default() {
+        return "calendar"
+      },
+    },
     /**
      * Date on ISO format to be edited.
      * @model
@@ -61,6 +71,9 @@ export default {
     };
   },
   computed: {
+    // selectDate() {
+    //   alert(this.input);
+    // },
     dateFormatted() {
       const date = this.input ? new Date(this.input) : new Date();
       let month = 1 + date.getMonth();

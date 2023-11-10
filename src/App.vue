@@ -2,7 +2,10 @@
   <v-container>
     <v-row>
       <v-col cols="6">
-        <date-input />
+        <date-input 
+          input-mode="keyboard"
+        >
+        </date-input>
       </v-col>
     </v-row>
   </v-container>
